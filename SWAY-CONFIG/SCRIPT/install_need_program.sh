@@ -25,36 +25,40 @@ git clone https://gitlab.com/farookphuket/my_zsh.git
 popd
 
 
-
+cp -R CONFIG_FILES/sway/ ~/.config/
+cp -R CONFIG_FILES/waybar/ ~/.config/
 
 # ========================== Install section START ============================
 
 # update script 
-# sudo pacman -Syuu
+sudo pacman -Syuu
 
 # install base-devel cmake
-# sudo pacman -S base-devel cmake go --noconfirm
+sudo pacman -S base-devel cmake go --noconfirm
 
 # nitrogen for write the background
-# sudo pacman -S nitrogen --noconfirm
+sudo pacman -S nitrogen --noconfirm
 
 # obs-studio for screen cast
-#sudo pacman -S obs-studio aegisub spectacle kdenlive --noconfirm
+sudo pacman -S obs-studio aegisub spectacle kdenlive --noconfirm
 
 
 # xscript 
-# sudo pacman -S xdotool xfce4-clipman-plugin xsel xclip  --noconfirm 
+sudo pacman -S xdotool xfce4-clipman-plugin xsel xclip rsync  --noconfirm 
 
 # bluetooth icon
-# sudo pacman -S blueman --noconfirm
+sudo pacman -S blueman --noconfirm
 
 # config zsh 1 Mar 2021                                                                                                 
-# sudo pacman -S zsh zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting zsh-theme-powerlevel10k --noconfirm 
+sudo pacman -S zsh zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting zsh-theme-powerlevel10k --noconfirm 
+
+# uget youtube-dl
+sudo pacman -S youtube-dl uget --noconfirm
 
 # ============ yay install ====================================================
 
 # audacious,puddletag,cmus,brave-git
-# yay -S audacios cmus puddletag brave-git
+yay -S audacios cmus puddletag brave-git imagewriter
 
 echo "=========== music player : ============================================="
 echo " cmus ,audacios"
@@ -78,11 +82,19 @@ echo "========================================================================"
 
 
 # call cmus player for the first time 
-# cmus
+ cmus
+
+ sleep 5s
+
+# copy cmus script 
+if [[ -d ~/.config/cmus/ ]] && [[ -n `ls -A ~/.config/cmus/` ]]; then
+    cp SCRIPT/update-cmus-library.sh ~/.config/cmus/
+
+fi
 
 
 # execute to install virt-manager
-# sh SCRIPT/install_virt-manager.sh 
+sh SCRIPT/install_virt-manager.sh 
 
 
 
@@ -93,16 +105,16 @@ echo "========================================================================"
 
 # ================= Copy zsh config ===========================================
 
-#zsh_dir=~/TEMP_DIR/my_zsh/ZSH/FOR_MANJARO/
+zsh_dir=~/TEMP_DIR/my_zsh/ZSH/FOR_MANJARO/
 
 # copy config 
-#cp $zsh_dir/.zshrc ~/
+cp $zsh_dir/.zshrc ~/
 
-#sudo cp -r $zsh_dir/zsh /usr/share/ 
-#sudo cp -r $zsh_dir/zsh-theme-powerlevel10k/ /usr/share/ 
+sudo cp -r $zsh_dir/zsh /usr/share/ 
+sudo cp -r $zsh_dir/zsh-theme-powerlevel10k/ /usr/share/ 
 
 # change SHELL to zsh 
-# chsh -s /bin/zsh
+chsh -s /bin/zsh
 
 
 

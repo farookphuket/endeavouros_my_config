@@ -68,7 +68,8 @@
 "clock": {
       	"interval": 60,
       	"format-alt": "{:%e %b %Y}", // Icon: calendar-alt
-      	"format": "{:%H:%M}",
+      	"format": "{:%Y-%m-%d %l:%M %P}",
+
       	"tooltip-format": "{:%e %B %Y}"
 },
  

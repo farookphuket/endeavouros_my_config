@@ -10,7 +10,7 @@ echo " "
 echo " ======================================================================="
 
 # install gnome-terminal 
-# sudo pacman -S gnome-terminal git --noconfirm
+sudo pacman -S gnome-terminal git konsole --noconfirm
 
 gnome-terminal --  SCRIPT/show_message.sh
 
